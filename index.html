@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -29,6 +30,7 @@
     nav ul li {
       margin: 10px 0;
       text-align: center;
+      position: relative;
     }
     nav ul li a {
       color: white;
@@ -41,10 +43,32 @@
     nav ul li a:hover {
       background-color: #00509e;
     }
-    nav ul li ul {
-      list-style: none;
-      padding-left: 20px;
-      margin-top: 10px;
+    nav ul li.has-submenu > a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+    }
+    nav ul li .submenu {
+      display: none;
+      flex-direction: column;
+      background-color: #003366;
+      padding-left: 0;
+      margin-top: 5px;
+      transition: all 0.3s ease;
+    }
+    nav ul li .submenu li {
+      margin: 0;
+    }
+    nav ul li:hover .submenu {
+      display: flex;
+    }
+    nav ul li:hover > a .arrow {
+      transform: rotate(90deg);
+    }
+    .arrow {
+      transition: transform 0.3s ease;
+      display: inline-block;
     }
     main {
       flex: 1;
@@ -85,21 +109,6 @@
       content: "\2713\0020";
       color: #003366;
     }
-    a.botao-formulario {
-      display: inline-block;
-      background-color: #003366;
-      color: #fff;
-      padding: 12px 24px;
-      margin-top: 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background-color 0.3s, transform 0.3s;
-    }
-    a.botao-formulario:hover {
-      background-color: #00509e;
-      transform: scale(1.05);
-    }
     footer {
       background-color: #003366;
       color: white;
@@ -133,17 +142,6 @@
       nav ul li {
         margin: 10px;
       }
-      header img {
-        max-height: 60px;
-      }
-      .container {
-        margin: 10px;
-        padding: 15px;
-      }
-      a.botao-formulario {
-        width: 100%;
-        text-align: center;
-      }
     }
   </style>
 </head>
@@ -151,8 +149,18 @@
   <nav>
     <ul>
       <li>
-        <a href="#requerimentos">Requerimentos</a>
-        <ul>
+        <a href="restrito.html" target="_blank">🔒 Restrito</a>
+      </li>
+      <li class="has-submenu">
+        <a href="#">🖥️ Sistemas <span class="arrow">▶️</span></a>
+        <ul class="submenu">
+          <li><a href="https://akiles.ap.uetecnologia.com.br" target="_blank">Akiles</a></li>
+          <li><a href="https://prodoc.ap.gov.br/login" target="_blank">Prodoc</a></li>
+        </ul>
+      </li>
+      <li class="has-submenu">
+        <a href="#">📄 Requerimentos <span class="arrow">▶️</span></a>
+        <ul class="submenu">
           <li><a href="https://atielnunes.github.io/cme-echo-2025/" target="_blank">Alteração de Endereço</a></li>
         </ul>
       </li>
@@ -162,7 +170,7 @@
   <main>
     <header>
       <img src="logo-pp.png" alt="Logo CME">
-<h1>Central de Monitoramento Eletrônico - CME</h1>
+      <h1>Central de Monitoramento Eletrônico - CME</h1>
       <p>GOVERNO DO ESTADO DO AMAPÁ</p>
       <p>SECRETARIA DE ESTADO DE JUSTIÇA E SEGURANÇA PÚBLICA</p>
       <p>INSTITUTO DE ADMINISTRAÇÃO PENITENCIÁRIA DO AMAPÁ</p>
@@ -172,15 +180,14 @@
       <section class="funcoes">
         <h2>Perfil da Central</h2>
         <p>Uma Central de Monitoramento Eletrônico (CME) é um centro de controle que monitora a localização e os movimentos de indivíduos que utilizam tornozeleiras eletrônicas, geralmente em contexto de medidas cautelares ou cumprimento de penas alternativas.</p>
-
         <h3>Funções da CME:</h3>
         <ul>
-          <li><strong>Monitoramento em tempo real:</strong> Recebe informações de localização da tornozeleira eletrônica, permitindo saber onde a pessoa monitorada está a todo momento.</li>
-          <li><strong>Supervisão e fiscalização:</strong> Verifica o cumprimento das condições impostas pela Justiça, como restrições de perímetro ou horário.</li>
-          <li><strong>Resposta a alertas:</strong> Aciona as autoridades competentes em caso de violação das regras de monitoramento, como saída do perímetro ou rompimento da tornozeleira.</li>
-          <li><strong>Orientação e apoio:</strong> Orienta os monitorados sobre as regras de uso da tornozeleira e oferece suporte em caso de dúvidas ou problemas.</li>
-          <li><strong>Gerenciamento de informações:</strong> Armazena e organiza dados sobre os monitorados, incluindo históricos de localização e ocorrências.</li>
-          <li><strong>Elaboração de relatórios:</strong> Produz relatórios sobre o cumprimento das medidas de monitoramento eletrônico.</li>
+          <li><strong>Monitoramento em tempo real:</strong> Recebe informações de localização da tornozeleira eletrônica.</li>
+          <li><strong>Supervisão e fiscalização:</strong> Verifica o cumprimento das condições impostas pela Justiça.</li>
+          <li><strong>Resposta a alertas:</strong> Aciona as autoridades em caso de violação das regras de monitoramento.</li>
+          <li><strong>Orientação e apoio:</strong> Oferece suporte aos monitorados.</li>
+          <li><strong>Gerenciamento de informações:</strong> Armazena e organiza dados dos monitorados.</li>
+          <li><strong>Elaboração de relatórios:</strong> Produz relatórios sobre o cumprimento das medidas.</li>
         </ul>
       </section>
     </div>
