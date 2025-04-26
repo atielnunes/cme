@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Acesso Restrito</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #eef2f7;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    input[type="password"] {
+      padding: 10px;
+      margin: 10px 0;
+      width: 200px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #003366;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover {
+      background-color: #00509e;
+    }
+    #link-secreto {
+      display: none;
+      margin-top: 20px;
+    }
+    #link-secreto ul {
+      list-style: none;
+      padding: 0;
+    }
+    #link-secreto li {
+      margin: 10px 0;
+    }
+    a {
+      color: #003366;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Área Restrita</h2>
+    <input type="password" id="senha" placeholder="Digite a senha">
+    <br>
+    <button onclick="verificarSenha()">Entrar</button>
+    <div id="link-secreto">
+      <p>✅ Acesso liberado:</p>
+      <ul>
+        <li><a href="https://atielnunes.github.io/cme-echo-2025/" target="_blank">Alteração de Endereço</a></li>
+        <li><a href="https://atielnunes.github.io/procedimentos/" target="_blank">Procedimentos</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    function verificarSenha() {
+      var senha = document.getElementById('senha').value;
+      if (senha === "CME@echo") {
+        document.getElementById('link-secreto').style.display = 'block';
+      } else {
+        alert('Senha incorreta!');
+      }
+    }
+  </script>
+</body>
+</html>
